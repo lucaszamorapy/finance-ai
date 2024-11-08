@@ -1,7 +1,7 @@
 import React from "react";
 import { db } from "../_lib/prisma";
 import { DataTable } from "../_components/ui/data-table";
-import { transactionsColumns } from "./_columns/index.tsx";
+import { transactionsColumns } from "./_columns";
 import AddTransactionButton from "../_components/add-transaction-button";
 
 const TransactionsPage = async () => {
