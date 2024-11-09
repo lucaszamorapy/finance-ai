@@ -32,5 +32,5 @@ export const upsertTransaction = async (params: UpsertTransactionParams) => {
     create: { ...params, userId },
   });
 
-  revalidatePath("/transaction")
+  revalidatePath("/transaction") // famoso get depois do update
 }
