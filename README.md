@@ -5,3 +5,8 @@
 -- npx prisma format
 -- npx prisma migrate dev --name init_db
 -- npx prisma studio
+
+## Stripe
+
+-- npm i stripe
+-- npm i @stripe/stripe-js
