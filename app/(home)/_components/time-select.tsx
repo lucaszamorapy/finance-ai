@@ -11,9 +11,9 @@ import { MONTH_OPTIONS } from "@/app/_constants/home";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const TimeSelect = () => {
-  const { push } = useRouter();
+  const { push } = useRouter(); //useNavigate
   const searchParams = useSearchParams();
-  const month = searchParams.get("month");
+  const month = searchParams.get("month"); //usado para o default values do select
   const handleMonthChange = (month: string) => {
     push(`/?month=${month}`);
   };
