@@ -1,9 +1,9 @@
 import { Button } from "@/app/_components/ui/button";
 import { CardContent, CardHeader, CardTitle } from "@/app/_components/ui/card";
+import { ScrollArea } from "@/app/_components/ui/scroll-area";
 import { TRANSACTION_PAYMENT_METHOD_ICONS } from "@/app/_constants/transactions";
 import { formatCurrency } from "@/app/_utils/currency";
 import { Transaction, TransactionType } from "@prisma/client";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
 import Image from "next/image";
 import Link from "next/link";
 

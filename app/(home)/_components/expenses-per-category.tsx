@@ -17,7 +17,7 @@ const ExpensesPerCategory = ({
         <CardHeader>
           <CardTitle className="font-bold">Gastos por Categoria</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-2">
+        <CardContent className="space-y-2 w-full">
           {expensesPerCategory.map((item) => (
             <div key={item.category} className="space-y-2">
               <div className="flex w-full justify-between">

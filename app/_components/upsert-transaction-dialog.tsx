@@ -1,4 +1,6 @@
-import React, { Dispatch, SetStateAction } from "react";
+"use client";
+
+import React, { Dispatch, SetStateAction, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -41,6 +43,7 @@ import {
 import { upsertTransaction } from "../_actions/add-transaction";
 import { Input } from "./ui/input";
 import { MoneyInput } from "./money-input";
+import { Loader2Icon } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().trim().min(1, {
@@ -77,6 +80,7 @@ const UpsertTransactionDialog = ({
   editValues,
   transactionId,
 }: UpsertTransactionDialogProps) => {
+  const [loading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: editValues ?? {
@@ -91,11 +95,13 @@ const UpsertTransactionDialog = ({
 
   const onSubmit = async (data: FormSchema) => {
     try {
+      setLoading(true);
       await upsertTransaction({ ...data, id: transactionId });
       form.reset();
       setIsOpen(false);
     } catch (error) {
       console.error(error);
+      setLoading(false);
     }
   };
 
@@ -250,7 +256,8 @@ const UpsertTransactionDialog = ({
                   Cancelar
                 </Button>
               </DialogClose>
-              <Button type="submit">
+              <Button type="submit" disabled={loading}>
+                {loading && <Loader2Icon className="animate-spin" />}
                 {transactionId ? "Atualizar" : "Adicionar"}
               </Button>
             </DialogFooter>

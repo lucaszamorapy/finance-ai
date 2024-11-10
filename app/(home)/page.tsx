@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import React from "react";
 import Navbar from "../_components/navbar";
@@ -27,9 +27,9 @@ const HomePage = async ({ searchParams: { month } }: HomeProps) => {
   if (monthIsInvalid) {
     redirect(`?month=${new Date().getMonth() + 1}`);
   }
-
   const userCanAddTransactions = await canUserAddTransaction();
   const dashboard = await getDashboard(month);
+  const user = await (await clerkClient()).users.getUser(userId);
   return (
     <>
       <Navbar />
@@ -37,7 +37,12 @@ const HomePage = async ({ searchParams: { month } }: HomeProps) => {
         <div className="flex justify-between">
           <h1 className="text-2xl font-bold">Dashboard</h1>
           <div className="flex items-center gap-3">
-            <AiReportButton month={month} />
+            <AiReportButton
+              month={month}
+              hasPremiumPlan={
+                user.publicMetadata.subscriptionPlan === "premium"
+              }
+            />
             <TimeSelect />
           </div>
         </div>
@@ -48,7 +53,7 @@ const HomePage = async ({ searchParams: { month } }: HomeProps) => {
               {...dashboard}
               userCanAddTransaction={userCanAddTransactions}
             />
-            <div className="grid grid-cols-3 grid-rows-1 gap-6">
+            <div className="grid grid-cols-2 grid-rows-1 gap-6">
               <TransactionPieChart {...dashboard} />
               <ExpensesPerCategory
                 expensesPerCategory={dashboard.totalExpensePerCategory}
