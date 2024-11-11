@@ -1,4 +1,5 @@
 //localhost:3000/api/webhooks/stripe rota do webhook
+//controller de put para atualizar o plano do usuário
 
 import { clerkClient } from "@clerk/nextjs/server"
 import { NextResponse } from "next/server"
