@@ -44,6 +44,7 @@ import { upsertTransaction } from "../_actions/add-transaction";
 import { Input } from "./ui/input";
 import { MoneyInput } from "./money-input";
 import { Loader2Icon } from "lucide-react";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   name: z.string().trim().min(1, {
@@ -99,9 +100,11 @@ const UpsertTransactionDialog = ({
       await upsertTransaction({ ...data, id: transactionId });
       form.reset();
       setIsOpen(false);
+      toast.success("Transação adicionada com sucesso!");
     } catch (error) {
       console.error(error);
       setLoading(false);
+      toast.error("Ocorreu um erro ao adicionar a transação!");
     }
   };
 
