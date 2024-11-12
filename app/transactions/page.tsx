@@ -18,6 +18,9 @@ const TransactionsPage = async () => {
     where: {
       userId,
     },
+    orderBy: {
+      date: "desc",
+    },
   }); //findAll do prisma
   const userCanAddTransactions = await canUserAddTransaction();
 
@@ -32,7 +35,10 @@ const TransactionsPage = async () => {
           />
         </div>
         <ScrollArea>
-          <DataTable columns={transactionsColumns} data={transactions} />
+          <DataTable
+            columns={transactionsColumns}
+            data={JSON.parse(JSON.stringify(transactions))}
+          />
         </ScrollArea>
       </div>
     </>
