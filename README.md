@@ -15,12 +15,12 @@ Você pode acessar o repositório do projeto no GitHub através do seguinte link
 ## Funcionalidades
 
 - ➕ **Login de Conta**: Entre com sua conta do Google.
-- 📷 **Cadastro de transações**: Adicione novas transações financeiras, incluindo detalhes como valor, descrição e categoria..
+- 📷 **Cadastro de transações**: Adicione novas transações financeiras, incluindo detalhes como valor, descrição e categoria.
 - ✏️ **Edição de transações**: Edite ou atualize suas transações financeiras já registradas.
 - 🗑️ **Exclusão de transações**: Exclua transações financeiras registradas.
-- 📊 **Gráficos de seus gastos por mês**: Visualize gráficos mensais para acompanhar seus gastos de forma clara e organizada..
+- 📊 **Gráficos de seus gastos por mês**: Visualize gráficos mensais para acompanhar seus gastos de forma clara e organizada.
 - 🤖 **Relatório Gerado por IA (Plano Premium)**: Relatórios financeiros personalizados e analisados por IA, disponíveis para usuários premium.
-- 💳 **Pagamento para mudança de Plano da conta**: Realize o pagamento para alterar seu plano de conta e desbloquear recursos adicionais..
+- 💳 **Pagamento para mudança de Plano da conta**: Realize o pagamento para alterar seu plano de conta e desbloquear recursos adicionais.
 
 ## Como Executar
 
